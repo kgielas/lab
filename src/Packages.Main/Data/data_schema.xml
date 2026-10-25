@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<entities>
+  <entity name="lab_warehouselocation" displayname="Warehouse Location" primaryidfield="lab_warehouselocationid" primarynamefield="lab_name" disableplugins="true">
+    <fields>
+      <field name="lab_warehouselocationid" type="guid" primaryKey="true" customfield="true" />
+      <field name="lab_name" type="string" customfield="true" />
+      <field name="lab_address" type="string" customfield="true" />
+      <field name="lab_capacity" type="number" customfield="true" />
+      <field name="lab_isactive" type="bool" customfield="true" />
+    </fields>
+  </entity>
+  <entity name="lab_warehouseitem" displayname="Warehouse Item" primaryidfield="lab_warehouseitemid" primarynamefield="lab_name" disableplugins="true">
+    <fields>
+      <field name="lab_warehouseitemid" type="guid" primaryKey="true" customfield="true" />
+      <field name="lab_name" type="string" customfield="true" />
+      <field name="lab_sku" type="string" customfield="true" />
+      <field name="lab_availablequantity" type="number" customfield="true" />
+      <field name="lab_category" type="optionsetvalue" customfield="true" />
+      <field name="lab_isperishable" type="bool" customfield="true" />
+      <field name="lab_unitprice" type="money" customfield="true" />
+      <field name="lab_reorderpoint" type="number" customfield="true" />
+      <field name="lab_locationid" type="entityreference" lookupType="lab_warehouselocation" customfield="true" />
+    </fields>
+  </entity>
+  <entity name="lab_warehousetransaction" displayname="Warehouse Transaction" primaryidfield="lab_warehousetransactionid" primarynamefield="lab_name" disableplugins="true">
+    <fields>
+      <field name="lab_warehousetransactionid" type="guid" primaryKey="true" customfield="true" />
+      <field name="lab_name" type="string" customfield="true" />
+      <field name="lab_itemid" type="entityreference" lookupType="lab_warehouseitem" customfield="true" />
+      <field name="lab_quantity" type="number" customfield="true" />
+      <field name="lab_transactiontype" type="optionsetvalue" customfield="true" />
+      <field name="lab_referencenumber" type="string" customfield="true" />
+    </fields>
+  </entity>
+</entities>
